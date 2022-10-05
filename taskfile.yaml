@@ -1,0 +1,7 @@
+# DOC: https://taskfile.dev/usage/
+version: '3'
+
+tasks:
+  run:
+    cmds:
+      - go run main.go

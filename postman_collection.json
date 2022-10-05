@@ -1,0 +1,108 @@
+{
+	"id": "b17223ae-5e3c-f6d8-e654-d18b8cdbd9ca",
+	"name": "GoLang-jwt",
+	"description": "",
+	"order": [
+		"37fafa79-4abc-9580-61a8-75bd96966528",
+		"876c8324-6e4e-6470-dbe8-4698fa3b2e67",
+		"8b150f3e-b0b2-7b1a-bcb5-b99b091ab5ec"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1664959190701,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "37fafa79-4abc-9580-61a8-75bd96966528",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:80/api/user/register",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1664959800938,
+			"name": "Create User",
+			"description": "",
+			"collectionId": "b17223ae-5e3c-f6d8-e654-d18b8cdbd9ca",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\":\"venkat\",\n\t\"password\":\"venkatPassword\",\n\t\"email\":\"venkat@gmail.com\"\n}"
+		},
+		{
+			"id": "876c8324-6e4e-6470-dbe8-4698fa3b2e67",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:80/api/token",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "b17223ae-5e3c-f6d8-e654-d18b8cdbd9ca",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Get Token ",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1664960073646,
+			"version": 2,
+			"responses": [],
+			"tests": "var data = JSON.parse(responseBody);\npostman.clearGlobalVariable(\"_token\");\npostman.setGlobalVariable(\"_token\", data.token);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"email\":\"venkat@gmail.com\",\n\t\"password\":\"venkatPassword\"\n}"
+		},
+		{
+			"id": "8b150f3e-b0b2-7b1a-bcb5-b99b091ab5ec",
+			"headers": "Authorization: {{_token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:80/api/secured/ping",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b17223ae-5e3c-f6d8-e654-d18b8cdbd9ca",
+			"data": null,
+			"dataMode": "params",
+			"name": "Access secured resource",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1664960122751,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
