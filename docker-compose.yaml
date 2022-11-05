@@ -6,6 +6,7 @@ services:
     build: .
     ports:
       - 80:80
+      - 40000:40000
     networks:
       - default
     volumes:
@@ -23,7 +24,7 @@ services:
 
   mysql:
     container_name: rest_db
-    image: mysql:8.0.17
+    image: mysql:8.0.31
     volumes:
       - jwt-mysql-data:/var/lib/mysql
     environment:
